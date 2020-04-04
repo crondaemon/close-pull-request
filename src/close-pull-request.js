@@ -21,7 +21,6 @@ export const run = async () => {
     core.info("Creating a comment");
     await client.issues.createComment({
       ...context.repo,
-      issue_number: context.issue.number,
       body
     });
   }
@@ -29,7 +28,6 @@ export const run = async () => {
   core.info("Updating the state of a pull request to closed");
   await client.pulls.update({
     ...context.repo,
-    pull_number: context.issue.number,
     state: "closed"
   });
 
